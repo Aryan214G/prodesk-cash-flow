@@ -4,6 +4,28 @@ const salaryInput = document.getElementById("salary-field");
 const salaryDisplay = document.getElementById("salary-display");
 
 document.getElementById("salary-button").addEventListener("click", function () {
-    const salary = Number(salaryInput.value);
-    salaryDisplay.textContent = salary;
+    totalSalary = Number(salaryInput.value);
+    salaryDisplay.textContent = totalSalary;
 });
+
+const expenseNameField = document.getElementById("expense-name");
+const expenseAmountField = document.getElementById("expense-amount");
+
+let expenses = [];
+document.getElementById("expense-button").addEventListener("click", function () {
+    let name = expenseNameField.value;
+    let amount = Number(expenseAmountField.value);
+    const expense = {
+        name: name,
+        amount: amount
+    };
+    
+    updateTotalExpenses(expense);
+    expenses.push(expense);
+});
+
+const expenseDisplay = document.getElementById("expense-display");
+function updateTotalExpenses(expense) {
+    totalExpenses = totalExpenses + expense.amount;
+    expenseDisplay.textContent = totalExpenses;
+}

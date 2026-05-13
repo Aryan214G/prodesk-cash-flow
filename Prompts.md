@@ -16,3 +16,13 @@ document.getElementById("salary-button").addEventListener("click", function () {
     const salary = Number(salaryInput.value);
     salaryDisplay.textContent = salary;
 });```
+
+4) is this the correct way to store objects:
+```let name = expenseNameField.value;
+    let amount = Number(expenseAmountField.value);
+    const expense = {
+        name: name,
+        amount: amount
+    };
+    
+    expenses.push(expense);```
