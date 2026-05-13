@@ -12,6 +12,12 @@ section {
 
     margin-bottom: 20px;
 
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: scale(1.02);
+    box-shadow: 6px 6px 20px grey;
 }
 
 button {
