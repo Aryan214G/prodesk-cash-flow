@@ -5,9 +5,21 @@ const salaryInput = document.getElementById("salary-field");
 const salaryDisplay = document.getElementById("salary-display");
 
 document.getElementById("salary-button").addEventListener("click", function () {
-    totalSalary = Number(salaryInput.value);
+
+    const salary = Number(salaryInput.value);
+
+    if (isNaN(salary) || salary <= 0) {
+
+        alert("Please enter a valid salary");
+
+        return;
+    }
+
+    totalSalary = salary;
+
     salaryDisplay.textContent = totalSalary;
-    balance-display();
+
+    updateBalance();
 });
 
 const expenseNameField = document.getElementById("expense-name");
@@ -17,6 +29,14 @@ let expenses = [];
 document.getElementById("expense-button").addEventListener("click", function () {
     let name = expenseNameField.value;
     let amount = Number(expenseAmountField.value);
+
+    if (!name || !expenseAmountField.value || amount <= 0) {
+
+            alert("Please enter valid expense details");
+
+            return;
+        }
+
     const expense = {
         name: name,
         amount: amount
@@ -52,7 +72,7 @@ function renderExpenses() {
 }
 
 const balanceDisplay = document.getElementById("balance-display");
-function updateBalance(params) {
+function updateBalance() {
     totalBalance = totalSalary - totalExpenses;
     balanceDisplay.textContent = totalBalance;
 }
