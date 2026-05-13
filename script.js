@@ -1,11 +1,13 @@
 let totalSalary = 0;
 let totalExpenses = 0;
+let totalBalance = 0;
 const salaryInput = document.getElementById("salary-field");
 const salaryDisplay = document.getElementById("salary-display");
 
 document.getElementById("salary-button").addEventListener("click", function () {
     totalSalary = Number(salaryInput.value);
     salaryDisplay.textContent = totalSalary;
+    balance-display();
 });
 
 const expenseNameField = document.getElementById("expense-name");
@@ -23,6 +25,7 @@ document.getElementById("expense-button").addEventListener("click", function () 
     updateTotalExpenses(expense);
     expenses.push(expense);
     renderExpenses();
+    updateBalance();
 });
 
 const expenseDisplay = document.getElementById("expense-display");
@@ -46,4 +49,10 @@ function renderExpenses() {
 
         expenseList.appendChild(li);
     });
+}
+
+const balanceDisplay = document.getElementById("balance-display");
+function updateBalance(params) {
+    totalBalance = totalSalary - totalExpenses;
+    balanceDisplay.textContent = totalBalance;
 }
