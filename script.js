@@ -20,6 +20,8 @@ document.getElementById("salary-button").addEventListener("click", function () {
     salaryDisplay.textContent = totalSalary;
 
     updateBalance();
+
+    salaryInput.value = "";
 });
 
 const expenseNameField = document.getElementById("expense-name");
@@ -46,6 +48,8 @@ document.getElementById("expense-button").addEventListener("click", function () 
     expenses.push(expense);
     renderExpenses();
     updateBalance();
+    expenseNameField.value = "";
+    expenseAmountField.value = "";
 });
 
 const expenseDisplay = document.getElementById("expense-display");
