@@ -22,10 +22,28 @@ document.getElementById("expense-button").addEventListener("click", function () 
     
     updateTotalExpenses(expense);
     expenses.push(expense);
+    renderExpenses();
 });
 
 const expenseDisplay = document.getElementById("expense-display");
 function updateTotalExpenses(expense) {
     totalExpenses = totalExpenses + expense.amount;
     expenseDisplay.textContent = totalExpenses;
+}
+
+const expenseList = document.getElementById("expense-list");
+
+function renderExpenses() {
+
+    expenseList.innerHTML = "";
+
+    expenses.forEach(function (expense) {
+
+        const li =
+            document.createElement("li");
+
+        li.textContent = `${expense.name} - ₹${expense.amount}`;
+
+        expenseList.appendChild(li);
+    });
 }

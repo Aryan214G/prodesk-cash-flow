@@ -26,3 +26,12 @@ document.getElementById("salary-button").addEventListener("click", function () {
     };
     
     expenses.push(expense);```
+
+5) How to display the expenses objects in the array in a ul?
+
+6) explain these syntax: 
+`${expense.name} - ₹${expense.amount}`;
+and
+    expenseList.innerHTML = "";
+
+    
